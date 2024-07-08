@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    color: #393E46;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #EEEEEE;
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+
+    margin-bottom: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #222831;
+}
+
+header h1 {
+    font-weight: 700;
+
+    color: #EEEEEE;
+}
+
+header h3 {
+    margin-left: 2vw;
+
+    color: #FFD369;
+}
+
+section {
+    width: 90vw;
+    height: 75vh;
+
+    margin-bottom: 3vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: gray;
+}
+
+footer {
+    width: 100vw;
+    height: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: #91959B;
+}
+
+
+
+/*    text-align: left;*/
+/*}*/
+
+/*.passed-step-audit {*/
+/*    background-color: #71C8B5;*/
+/*}*/
+
+/*.failed-step-audit {*/
+/*    background-color: #FF7C7C;*/
+/*}*/
+
+
+/*#results-controls {*/
+/*    width: 35vw;*/
+/*    height: 5vh;*/
+
+/*    margin: auto;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*#pass-button {*/
+/*     width: 17.5vw;*/
+/*     height: 5vh;*/
+
+/*     display: flex;*/
+/*     flex-direction: row;*/
+/*     justify-content: center;*/
+/*     align-items: center;*/
+
+/*     border: none;*/
+/*     border-radius: 5px 0 0 5px;*/
+
+/*     font-size: 1rem;*/
+/*     font-weight: bold;*/
+
+/*     background-color: #47A992;*/
+/*    color: #EEEEEE;*/
+/* }*/
+
+/*#fail-button {*/
+/*    width: 17.5vw;*/
+/*    height: 5vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    border: none;*/
+/*    border-radius: 0 5px 5px 0;*/
+
+/*    font-size: 1rem;*/
+/*    font-weight: bold;*/
+
+/*    background-color: #F05454;*/
+/*    color: #EEEEEE;*/
+/*}*/
+
+/*#area-step-result {*/
+/*    align-self: center;*/
+/*}*/
+
+/*.passed-area-step-result {*/
+/*    color: #47A992;*/
+/*}*/
+
+/*.failed-area-step-result {*/
+/*    color: #F05454;*/
+/*}*/
+
+/*#progress-indicator-container {*/
+/*    width: 30%;*/
+/*    height: 5%;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-evenly;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.progress-indicator {*/
+/*    width: 2vw;*/
+/*    height: 2vw;*/
+
+/*    border-radius: 50%;*/
+
+/*    background-color: #393E46;*/
+/*}*/
+
+/*.passed-progress-indicator {*/
+/*    background-color: #47A992;*/
+/*}*/
+
+/*.failed-progress-indicator {*/
+/*    background-color: #F05454;*/
+/*}*/
+
+/*.selected-progress-indicator {*/
+/*    width: 3vw;*/
+/*    height: 3vw;*/
+/*}*/

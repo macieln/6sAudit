@@ -1,0 +1,22 @@
+#progress-indicator-div {
+    width: 24vw;
+    height: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 85vh;
+
+    /*background-color: pink;*/
+}
+
+.progress-indicator {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 2rem;
+    background-color: #91959B;
+}
