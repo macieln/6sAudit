@@ -4,26 +4,40 @@
  */
 
 import { StartSection } from "./startSection.js";
+import { StepAuditSection } from "./stepAuditSection.js";
+import { ResultsControls } from "./resultsControls.js";
 import { AuditControls } from "./auditControls.js";
 import { ProgressIndicator } from "./progressIndicator.js";
-import { StepAuditSection } from "./stepAuditSection.js";
+import { auditResults } from "./auditResults.js";
 
 let sectionEl = document.getElementsByTagName('section')[0];
+let stepAuditSection = null;
+let resultsControls = null;
 let auditControls = null;
 let progressIndicator = null;
 let index = 0;
-let stepAuditSection = null;
 
 let startSection = new StartSection(sectionEl);
 startSection.startButtonEl.addEventListener("click", () => {
     startSection.startButtonEl.remove();
     startSection.promptEl.remove();
 
-    auditControls = new AuditControls(sectionEl);
-    progressIndicator = new ProgressIndicator(sectionEl);
     stepAuditSection = new StepAuditSection(sectionEl);
     stepAuditSection.makeStepAudit(0)
+
+    resultsControls = new ResultsControls(sectionEl);
+    resultsControls.passButtonEl.addEventListener("click", () => {
+        resultsControls.setResults(true, index);
+    });
+    resultsControls.failButtonEl.addEventListener("click", () => {
+        resultsControls.setResults(false, index);
+    });
+
+    auditControls = new AuditControls(sectionEl);
+    progressIndicator = new ProgressIndicator(sectionEl);
 });
+
+
 
 
 
@@ -74,18 +88,7 @@ startSection.startButtonEl.addEventListener("click", () => {
 // });
 
 
-// let passButtonEl = document.createElement("button");
-// passButtonEl.innerText = "PASS";
-// passButtonEl.id = "pass-button";
-// passButtonEl.addEventListener("click", () => {setResult(true)})
-//
-// let failButtonEl = document.createElement("button");
-// failButtonEl.innerText = "FAIL";
-// failButtonEl.id = "fail-button";
-// failButtonEl.addEventListener("click", () => {setResult(false)})
-//
-// resultsControlsEl.appendChild(passButtonEl);
-// resultsControlsEl.appendChild(failButtonEl);
+
 //
 // let areaStepResultEl = document.createElement("h1");
 // areaStepResultEl.id = "area-step-result";
@@ -105,65 +108,3 @@ startSection.startButtonEl.addEventListener("click", () => {
 //     progressIndicatorEls.push(element);
 // }
 //
-
-
-
-
-
-//
-// function setResult(input) {
-//
-//     switch (input) {
-//         case true:
-//             auditResults[index]["result"] = true;
-//
-//             break
-//         case false:
-//             auditResults[index]["result"] = false;
-//
-//             break
-//         default:
-//             break
-//     }
-//
-//     if (auditResults[index]["result"] === true) {
-//         stepAuditEl.classList.remove("failed-step-audit");
-//         stepAuditEl.classList.add("passed-step-audit");
-//
-//         areaStepResultEl.remove()
-//         areaStepResultEl.innerText = `PASSED`;
-//
-//         areaStepResultEl.classList.add("passed-area-step-result");
-//         areaStepResultEl.classList.remove("failed-area-step-result");
-//
-//         progressIndicatorEls[index].classList.add("passed-progress-indicator");
-//         progressIndicatorEls[index].classList.remove("failed-progress-indicator");
-//
-//         stepAuditEl.appendChild(areaStepResultEl);
-//     } else if (auditResults[index]["result"] === false) {
-//         stepAuditEl.classList.remove("passed-step-audit");
-//         stepAuditEl.classList.add("failed-step-audit");
-//
-//         areaStepResultEl.remove()
-//         areaStepResultEl.innerText = `FAILED`;
-//
-//         areaStepResultEl.classList.add("failed-area-step-result");
-//         areaStepResultEl.classList.remove("passed-area-step-result");
-//
-//         progressIndicatorEls[index].classList.remove("passed-progress-indicator");
-//         progressIndicatorEls[index].classList.add("failed-progress-indicator");
-//
-//         stepAuditEl.appendChild(areaStepResultEl);
-//     } else {
-//         stepAuditEl.classList.remove("passed-step-audit");
-//         stepAuditEl.classList.remove("failed-step-audit");
-//
-//         areaStepResultEl.classList.remove("passed-area-step-result");
-//         areaStepResultEl.classList.remove("failed-area-step-result");
-//
-//         progressIndicatorEls[index].classList.remove("failed-progress-indicator");
-//         progressIndicatorEls[index].classList.remove("passed-progress-indicator");
-//
-//         areaStepResultEl.innerText = `Select PASS or FAIL`;
-//     }
-// }

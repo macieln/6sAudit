@@ -5,28 +5,21 @@
 
 import { auditResults } from "./auditResults.js";
 
-// export function stepAuditSection(index) {
-//
-// stepAuditEl.id = "step-audit";
-//
-//
-//
-//
-//
-// resultsControlsEl.id = "results-controls";
-// }
-
 export class StepAuditSection {
     sectionEl = null;
-
     stepAuditEl = document.createElement("div");
+    stepAuditHeaderEl = document.createElement("header");
     stepEl = document.createElement("h2");
+    stepAuditInfoButton = document.createElement("button");
     descriptionEl = document.createElement("p");
+
     // resultsControlsEl = document.createElement("div");
 
     constructor(sectionEl) {
         this.sectionEl = sectionEl;
         this.stepAuditEl.id = "step-audit-div";
+        this.stepAuditInfoButton.innerText = "i";
+        this.stepAuditInfoButton.id = "step-audit-info-button";
     }
 
     makeStepAudit(index) {
@@ -35,8 +28,20 @@ export class StepAuditSection {
         this.descriptionEl.innerText = `${auditResults[index]["description"]}`;
         // this.resultsControlsEl.innerText = "Cheese";
 
-        this.stepAuditEl.appendChild(this.stepEl);
-        this.stepAuditEl.appendChild(this.descriptionEl);
+        this.stepAuditEl.appendChild(this.stepAuditHeaderEl);
+        this.stepAuditHeaderEl.appendChild(this.stepEl);
+        this.stepAuditHeaderEl.appendChild(this.stepAuditInfoButton);
+        this.stepAuditInfoButton.addEventListener("click", () => {
+            if (this.stepAuditInfoButton.innerText === "i") {
+                this.stepAuditInfoButton.innerText = "X";
+                this.stepAuditEl.appendChild(this.descriptionEl);
+            } else {
+                this.stepAuditInfoButton.innerText = "i";
+                this.descriptionEl.remove();
+            }
+        });
+
+
         // this.stepAuditEl.appendChild(this.resultsControlsEl);
 
         this.sectionEl.appendChild(this.stepAuditEl);

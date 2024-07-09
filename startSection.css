@@ -2,6 +2,7 @@
     width: 35vw;
     height: 5vh;
 
+    margin-top: 3vh;
     margin-bottom: 3vh;
 
     display: flex;
@@ -14,7 +15,4 @@
 
     background-color: #47A992;
     color: #EEEEEE;
-}
-
-#start-prompt {
 }

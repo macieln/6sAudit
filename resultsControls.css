@@ -1,0 +1,43 @@
+#results-controls-div {
+    width: 35vw;
+    height: 5vh;
+
+    margin-bottom: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pass-button {
+    width: 17.5vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 5px 0 0 5px;
+
+    background-color: #47A992;
+    color: #EEEEEE;
+ }
+
+#fail-button {
+    width: 17.5vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 0 5px 5px 0;
+
+    background-color: #F05454;
+    color: #EEEEEE;
+}
