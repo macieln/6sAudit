@@ -12,30 +12,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="./startSection.css">
-    <link rel="stylesheet" href="./stepAuditSection.css">
-    <link rel="stylesheet" href="./resultsControls.css">
-    <link rel="stylesheet" href="./auditControls.css">
-    <link rel="stylesheet" href="./progressIndicator.css">
 
     <title>6s Audit RS1 Cubes</title>
 </head>
 <body>
     <header>
         <h1>6s Audit</h1>
-        <h3>RS1 Cubes</h3>
+        <h3 id="area-title">RS1 Cubes</h3>
     </header>
 
-    <section>
+    <section id="main-section">
+        <header id="main-section-header">
+            <h2 id="main-section-title">
+            </h2>
+            <button id="step-information-button">X</button>
+        </header>
 
+        <div id="main-section-content">
+            <button id="start-button">START</button>
+            <p id="welcome-prompt">Press START to begin area audit</p>
+        </div>
+
+        <h3 id="results-indicator"></h3>
+
+        <div id="results-validation-controls">
+            <button id="pass-validation-button">PASS</button>
+            <button id="fail-validation-button">FAIL</button>
+        </div>
+
+        <div id="steps-toggle-controls">
+            <button id="previous-toggle-button" class="step-toggle-button"><</button>
+
+            <div id="progress-indicators">
+                <div class="progress-indicator"></div>
+                <div class="progress-indicator"></div>
+                <div class="progress-indicator"></div>
+                <div class="progress-indicator"></div>
+                <div class="progress-indicator"></div>
+                <div class="progress-indicator"></div>
+            </div>
+
+            <button id="next-toggle-button" class="step-toggle-button">></button>
+        </div>
     </section>
 
     <script src="./main.js" type="module"></script>
-    <script src="./startSection.js" type="module"></script>
-    <script src="./stepAuditSection.js" type="module"></script>
-    <script src="./auditResults.js" type="module"></script>
-    <script src="./resultsControls.js" type="module"></script>
-    <script src="./auditControls.js" type="module"></script>
-    <script src="./progressIndicator.js" type="module"></script>
+<!--    <script src="./startSection.js" type="module"></script>-->
+<!--    <script src="./stepAuditSection.js" type="module"></script>-->
+<!--    <script src="./auditResults.js" type="module"></script>-->
+<!--    <script src="./resultsControls.js" type="module"></script>-->
+<!--    <script src="./auditControls.js" type="module"></script>-->
+<!--    <script src="./progressIndicator.js" type="module"></script>-->
 </body>
 </html>

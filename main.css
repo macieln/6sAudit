@@ -40,13 +40,19 @@ header h1 {
     color: #EEEEEE;
 }
 
-header h3 {
+#area-title {
     margin-left: 2vw;
 
     color: #FFD369;
 }
 
-section {
+
+
+/******************************************************************/
+/* MAIN SECTION                                                   */
+/******************************************************************/
+
+#main-section {
     width: 94vw;
     height: 86vh;
 
@@ -55,66 +61,228 @@ section {
     align-items: center;
 
     border-radius: 10px;
+
+    /*background-color: gray;*/
 }
 
-.passed-step-audit {
+#main-section-header {
+    width: 82vw;
+    height: auto;
+
+    margin-top: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#step-information-button {
+    width: 8vw;
+    height: 4vh;
+
+    border: none;
+    border-radius: 5px;
+
+    color: #EEEEEE;
+    background-color: #222831;
+}
+
+.no-validation-background {
+    background-color: #EEEEEE;
+}
+
+.passed-validation-background {
     background-color: #71C8B5;
 }
 
-.failed-step-audit {
+.failed-validation-background {
     background-color: #FF7C7C;
+}
+
+.passed-validation-foreground {
+    color: #47A992;
+}
+
+.failed-validation-foreground {
+    color: #F05454;
 }
 
 
 
-/*    text-align: left;*/
-/*}*/
+/******************************************************************/
+/* MAIN SECTION CONTENT                                           */
+/******************************************************************/
+
+#main-section-content {
+    width: 82vw;
+    height: 52vh;
+
+    margin-bottom: 3vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    /*background-color: pink;*/
+}
+
+#start-button {
+    width: 35vw;
+    height: 5vh;
+
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #47A992;
+    color: #EEEEEE;
+}
 
 
 
+/******************************************************************/
+/* RESULTS INDICATORS                                             */
+/******************************************************************/
+
+#results-indicator {
+    height: 4vh;
+
+    margin-bottom: 3vh;
+
+    /*background-color: pink;*/
+}
 
 
 
-/*#area-step-result {*/
-/*    align-self: center;*/
-/*}*/
+/******************************************************************/
+/* RESULTS VALIDATION CONTROLS                                    */
+/******************************************************************/
 
-/*.passed-area-step-result {*/
-/*    color: #47A992;*/
-/*}*/
+#results-validation-controls {
+    width: 35vw;
+    height: 5vh;
 
-/*.failed-area-step-result {*/
-/*    color: #F05454;*/
-/*}*/
+    margin-bottom: 3vh;
 
-/*#progress-indicator-container {*/
-/*    width: 30%;*/
-/*    height: 5%;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-evenly;*/
-/*    align-items: center;*/
-/*}*/
+#pass-validation-button {
+    width: 17.5vw;
+    height: 5vh;
 
-/*.progress-indicator {*/
-/*    width: 2vw;*/
-/*    height: 2vw;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-/*    border-radius: 50%;*/
+    border: none;
+    border-radius: 5px 0 0 5px;
 
-/*    background-color: #393E46;*/
-/*}*/
+    background-color: #47A992;
+    color: #EEEEEE;
+}
 
-/*.passed-progress-indicator {*/
-/*    background-color: #47A992;*/
-/*}*/
+#fail-validation-button {
+    width: 17.5vw;
+    height: 5vh;
 
-/*.failed-progress-indicator {*/
-/*    background-color: #F05454;*/
-/*}*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-/*.selected-progress-indicator {*/
-/*    width: 3vw;*/
-/*    height: 3vw;*/
-/*}*/
+    border: none;
+    border-radius: 0 5px 5px 0;
+
+    background-color: #F05454;
+    color: #EEEEEE;
+}
+
+
+
+/******************************************************************/
+/* STEPS TOGGLE CONTROLS                                          */
+/******************************************************************/
+
+#steps-toggle-controls {
+    width: 82vw;
+    height: 5vh;
+
+    margin-bottom: 3vh;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    /*background-color: pink;*/
+}
+
+
+.step-toggle-button {
+    width: 15vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.75rem;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #222831;
+    color: #EEEEEE;
+}
+
+
+
+/******************************************************************/
+/* PROGRESS INDICATORS                                            */
+/******************************************************************/
+
+#progress-indicators {
+    width: 30vw;
+    height: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /*background-color: green;*/
+}
+
+.progress-indicator {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 2rem;
+    background-color: #91959B;
+}
+
+.selected-progress-indicator {
+    width: 10px;
+    height: 10px;
+}
+
+.completed-progress-indicator {
+    background-color: #222831;
+}
