@@ -24,7 +24,7 @@ header {
     width: 100vw;
     height: 10vh;
 
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
 
     display: flex;
     flex-direction: row;
@@ -47,16 +47,22 @@ header h3 {
 }
 
 section {
-    width: 90vw;
-    height: 84vh;
-
-    margin-bottom: 3vh;
+    width: 94vw;
+    height: 86vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    /*background-color: gray;*/
+    border-radius: 10px;
+}
+
+.passed-step-audit {
+    background-color: #71C8B5;
+}
+
+.failed-step-audit {
+    background-color: #FF7C7C;
 }
 
 
@@ -64,13 +70,7 @@ section {
 /*    text-align: left;*/
 /*}*/
 
-/*.passed-step-audit {*/
-/*    background-color: #71C8B5;*/
-/*}*/
 
-/*.failed-step-audit {*/
-/*    background-color: #FF7C7C;*/
-/*}*/
 
 
 

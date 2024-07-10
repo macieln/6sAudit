@@ -21,4 +21,8 @@ export class ProgressIndicator {
 
         sectionEl.appendChild(this.progressIndicatorEL);
     }
+
+    complete(index) {
+        this.progressIndicators[index].classList.add("completed-progress-indicator");
+    }
 }

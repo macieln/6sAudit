@@ -12,21 +12,27 @@ export class StepAuditSection {
     stepEl = document.createElement("h2");
     stepAuditInfoButton = document.createElement("button");
     descriptionEl = document.createElement("p");
-
-    // resultsControlsEl = document.createElement("div");
+    areaStepResultEl = document.createElement("p");
 
     constructor(sectionEl) {
         this.sectionEl = sectionEl;
         this.stepAuditEl.id = "step-audit-div";
+
+        this.stepAuditHeaderEl.id = "step-audit-header";
+        this.stepAuditHeaderEl.classList.add("null-step-audit-header");
+
         this.stepAuditInfoButton.innerText = "i";
         this.stepAuditInfoButton.id = "step-audit-info-button";
+
+        this.areaStepResultEl.id = "area-step-result";
+        // this.areaStepResultEl.innerHTML = `Validate if area PASS or FAIL step audit`;
+
     }
 
     makeStepAudit(index) {
         this.stepAuditEl.remove();
         this.stepEl.innerText = `Step ${index + 1} ${auditResults[index]["step"]}`;
         this.descriptionEl.innerText = `${auditResults[index]["description"]}`;
-        // this.resultsControlsEl.innerText = "Cheese";
 
         this.stepAuditEl.appendChild(this.stepAuditHeaderEl);
         this.stepAuditHeaderEl.appendChild(this.stepEl);
@@ -41,9 +47,7 @@ export class StepAuditSection {
             }
         });
 
-
-        // this.stepAuditEl.appendChild(this.resultsControlsEl);
-
         this.sectionEl.appendChild(this.stepAuditEl);
+        this.sectionEl.appendChild(this.areaStepResultEl);
     }
 }

@@ -6,17 +6,21 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    /*position: fixed;*/
-    /*top: 85vh;*/
-
-    /*background-color: pink;*/
 }
 
 .progress-indicator {
     width: 8px;
     height: 8px;
 
+    margin-bottom: 3vh;
+
     border-radius: 2rem;
     background-color: #91959B;
+}
+
+.completed-progress-indicator {
+    width: 10px;
+    height: 10px;
+
+    background-color: #222831;
 }

@@ -1,27 +1,23 @@
 #step-audit-div {
-    width: 90vw;
+    width: 86vw;
     height: 70vh;
-
-    margin-bottom: 3vh;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: start;
-
-    /*background-color: pink;*/
 }
 
-#step-audit-div header {
-    width: 90vw;
+#step-audit-header {
+    width: 86vw;
     height: 4vh;
+
+    margin-top: 2vh;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    background-color: #EEEEEE;
 }
 
 #step-audit-info-button {
@@ -40,4 +36,34 @@
     border-radius: 5px;
 
     background-color: #222831;
+}
+
+.null-step-audit-header {
+    background-color: #EEEEEE;
+}
+
+.passed-step-audit-header {
+    background-color: #71C8B5;
+}
+
+.failed-step-audit-header {
+    background-color: #FF7C7C;
+}
+
+#area-step-result {
+    margin-bottom: 1vh;
+}
+
+.passed-area-step-result {
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    color: #47A992;
+}
+
+.failed-area-step-result {
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    color: #F05454;
 }
