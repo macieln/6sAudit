@@ -16,8 +16,26 @@ let mainSectionContent = document.getElementById("main-section-content");
 let startButton = document.getElementById("start-button");
 let welcomePrompt = document.getElementById("welcome-prompt");
 
+let stepDescription = document.createElement("p");
+stepDescription.id = "step-description"
+
 let actionItems = document.createElement("div");
 actionItems.id = "action-items";
+
+let actionItemsHeader = document.createElement("header");
+actionItemsHeader.id = "action-items-header";
+
+let actionItemsTitle = document.createElement("h3");
+actionItemsTitle.id = "action-items-title";
+actionItemsTitle.innerText = "Action Items";
+
+let addActionButton = document.createElement("button");
+addActionButton.id = "add-action-item-button";
+addActionButton.innerText = "+";
+
+actionItemsHeader.appendChild(actionItemsTitle);
+actionItemsHeader.appendChild(addActionButton);
+actionItems.appendChild(actionItemsHeader);
 
 let resultsIndicator = document.getElementById("results-indicator");
 
@@ -46,11 +64,15 @@ startButton.addEventListener("click", () => {
     mainSectionHeader.classList.add("no-validation-background");
 
     mainSection.appendChild(mainSectionContent);
+
+    makeAuditStep(0);
+
+    mainSectionContent.appendChild(actionItems);
+
     mainSection.appendChild(resultsIndicator);
     mainSection.appendChild(resultsValidationControls);
     mainSection.appendChild(stepsToggleControls);
 
-    makeAuditStep(0);
     toggleStepInformation();
     toggleIndicator(index);
 })
@@ -104,7 +126,6 @@ auditResults.push(
 
 
 
-let stepDescription = document.createElement("p");
 function makeAuditStep(index) {
     mainSectionTitle.remove();
     stepInformationButton.remove();
@@ -169,9 +190,20 @@ function toggleStepInformation() {
     if (stepInformationButton.innerText === "i") {
         stepInformationButton.innerText = "X";
 
+        stepDescription.remove();
+        actionItems.remove();
+
         stepDescription.innerText = `${auditResults[index]["description"]}`;
+
+        mainSectionContent.appendChild(stepDescription);
+        mainSectionContent.appendChild(actionItems);
     } else {
         stepInformationButton.innerText = "i";
+
+        stepDescription.remove();
+        actionItems.remove();
+
+        mainSectionContent.appendChild(actionItems);
 
         stepDescription.innerText = ``;
     }
