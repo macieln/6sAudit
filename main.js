@@ -68,6 +68,7 @@ startButton.addEventListener("click", () => {
     makeAuditStep(0);
 
     mainSectionContent.appendChild(actionItems);
+    actionItemsHeader.classList.add("no-validation-background");
 
     mainSection.appendChild(resultsIndicator);
     mainSection.appendChild(resultsValidationControls);
@@ -151,7 +152,9 @@ function toggleResult(input) {
         mainSectionHeader.classList.remove("failed-validation-background");
         mainSectionHeader.classList.add("passed-validation-background");
 
-        resultsIndicator.classList.remove("no-validation-foreground");
+        actionItemsHeader.classList.remove("failed-validation-background");
+        actionItemsHeader.classList.add("passed-validation-background");
+
         resultsIndicator.classList.remove("failed-validation-foreground");
         resultsIndicator.classList.add("passed-validation-foreground");
         resultsIndicator.innerText = "Area PASSED step audit";
@@ -165,6 +168,9 @@ function toggleResult(input) {
         mainSectionHeader.classList.remove("failed-validation-background");
         mainSectionHeader.classList.add("failed-validation-background");
 
+        actionItemsHeader.classList.remove("passed-validation-background");
+        actionItemsHeader.classList.add("failed-validation-background");
+
         resultsIndicator.classList.remove("no-validation-foreground");
         resultsIndicator.classList.remove("passed-validation-foreground");
         resultsIndicator.classList.add("failed-validation-foreground");
@@ -177,6 +183,9 @@ function toggleResult(input) {
         mainSectionHeader.classList.remove("failed-validation-background");
         mainSectionHeader.classList.remove("passed-validation-background");
 
+        actionItemsHeader.classList.remove("passed-validation-background");
+        actionItemsHeader.classList.remove("failed-validation-background");
+
         resultsIndicator.classList.remove("passed-validation-foreground");
         resultsIndicator.classList.remove("failed-validation-foreground");
         resultsIndicator.innerText = "";
@@ -188,7 +197,7 @@ function toggleResult(input) {
 
 function toggleStepInformation() {
     if (stepInformationButton.innerText === "i") {
-        stepInformationButton.innerText = "X";
+        stepInformationButton.innerText = "x";
 
         stepDescription.remove();
         actionItems.remove();
