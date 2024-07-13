@@ -3,85 +3,43 @@
    Description: App main module.
  */
 
-
-
-let body = document.getElementsByTagName("body")[0];
-
 let mainSection = document.getElementById("main-section");
-let mainSectionHeader = document.getElementById("main-section-header");
-let mainSectionTitle = document.getElementById("main-section-title");
-let stepInformationButton = document.getElementById("step-information-button");
-
-let mainSectionContent = document.getElementById("main-section-content");
-let startButton = document.getElementById("start-button");
-let welcomePrompt = document.getElementById("welcome-prompt");
-
-let stepDescription = document.createElement("p");
-stepDescription.id = "step-description"
-
-let actionItems = document.createElement("div");
-actionItems.id = "action-items";
-
-let actionItemsHeader = document.createElement("header");
-actionItemsHeader.id = "action-items-header";
-
-let actionItemsTitle = document.createElement("h3");
-actionItemsTitle.id = "action-items-title";
-actionItemsTitle.innerText = "Action Items";
-
-let addActionButton = document.createElement("button");
-addActionButton.id = "add-action-item-button";
-addActionButton.innerText = "+";
-
-actionItemsHeader.appendChild(actionItemsTitle);
-actionItemsHeader.appendChild(addActionButton);
-actionItems.appendChild(actionItemsHeader);
-
-let resultsIndicator = document.getElementById("results-indicator");
-
-let resultsValidationControls = document.getElementById("results-validation-controls");
-let passValidationButton = document.getElementById("pass-validation-button");
-let failValidationButton = document.getElementById("fail-validation-button");
-
-let stepsToggleControls = document.getElementById("steps-toggle-controls");
-let previousToggleButton = document.getElementById("previous-toggle-button");
-let nextToggleButton = document.getElementById("next-toggle-button");
-let progressIndicators = document.getElementById("progress-indicators");
-
-mainSectionHeader.remove();
-resultsIndicator.remove();
-resultsValidationControls.remove();
-stepsToggleControls.remove();
-
-
-
-startButton.addEventListener("click", () => {
-    startButton.remove();
-    welcomePrompt.remove();
-    mainSectionContent.remove();
-
-    mainSection.appendChild(mainSectionHeader);
-    mainSectionHeader.classList.add("no-validation-background");
-
-    mainSection.appendChild(mainSectionContent);
-
-    makeAuditStep(0);
-
-    mainSectionContent.appendChild(actionItems);
-    actionItemsHeader.classList.add("no-validation-background");
-
-    mainSection.appendChild(resultsIndicator);
-    mainSection.appendChild(resultsValidationControls);
-    mainSection.appendChild(stepsToggleControls);
-
-    toggleStepInformation();
-    toggleIndicator(index);
-})
-
-
-
+let startButton = document.createElement("button");
+let welcomePrompt = document.createElement("p");
+let mainSectionHeader = document.createElement("header");
 let index = 0;
 let auditResults = [];
+let stepTitle = document.createElement("h2");
+let stepInformationButton = document.createElement("button");
+let stepDescription = document.createElement("p");
+let actionItemsHeader = document.createElement("header");
+let actionItemsTitle = document.createElement("h3");
+let addActionItemButton = document.createElement("button");
+let actionItemsContainer = document.createElement("div");
+
+startButton.id = "start-button";
+startButton.innerText = "START";
+welcomePrompt.innerText = "Press START to begin area audit";
+welcomePrompt.id = "welcome-prompt";
+mainSectionHeader.id = "main-section-header";
+mainSectionHeader.classList.add("no-validation-background");
+stepTitle.id = "step-title";
+stepInformationButton.id = "step-information-button";
+stepInformationButton.innerText = "X";
+stepDescription.id = "step-description";
+actionItemsHeader.id = "action-items-header";
+actionItemsHeader.classList.add("no-validation-background");
+actionItemsTitle.id = "action-items-title";
+actionItemsTitle.innerText = "Action Items";
+addActionItemButton.id = "add-action-item-button";
+addActionItemButton.innerText = "+";
+actionItemsContainer.id = "action-items-container";
+
+mainSection.appendChild(startButton);
+mainSection.appendChild(welcomePrompt);
+actionItemsHeader.appendChild(actionItemsTitle);
+actionItemsHeader.appendChild(addActionItemButton);
+
 auditResults.push(
     {
         "step": "Sort",
@@ -131,199 +89,276 @@ auditResults.push(
     }
 );
 
+startButton.addEventListener("click", () => {
+    startButton.remove();
+    welcomePrompt.remove();
 
+    makeAuditStep();
 
-function makeAuditStep(index) {
-    mainSectionTitle.remove();
-    stepInformationButton.remove();
-    stepDescription.innerText = "";
-
-    mainSectionTitle.innerText = `Step ${index + 1}: ${auditResults[index]["step"]}`;
-    toggleStepInformation();
-
-    let indicator = document.getElementsByClassName("progress-indicator")[index]
-    // indicator.classList.remove("completed-progress-indicator");
-    // indicator.classList.add("completed-progress-indicator");
-
-    mainSectionHeader.appendChild(mainSectionTitle);
-    mainSectionHeader.appendChild(stepInformationButton);
-
-    mainSectionContent.appendChild(stepDescription);
-}
-
-function appendActionItem() {
-    (auditResults[index]["actionItems"]).push("CHEESE");
-
-    while (actionItems.lastChild) {
-        actionItems.lastChild.remove();
-    }
-
-    actionItems.appendChild(actionItemsHeader);
-
-    let actionItemDescriptions = auditResults[index]["actionItems"];
-    for (let index in actionItemDescriptions) {
-        let actionItemEL = document.createElement("input");
-        actionItemEL.type = "text";
-        actionItemEL.value = actionItemDescriptions[index];
-
-        actionItems.appendChild(actionItemEL);
-    }
-}
-
-function toggleResult(input) {
-    if (input === true) {
-        auditResults[index]["result"] = input;
-
-        mainSectionHeader.classList.remove("failed-validation-background");
-        mainSectionHeader.classList.add("passed-validation-background");
-
-        actionItemsHeader.classList.remove("failed-validation-background");
-        actionItemsHeader.classList.add("passed-validation-background");
-
-        resultsIndicator.classList.remove("failed-validation-foreground");
-        resultsIndicator.classList.add("passed-validation-foreground");
-        resultsIndicator.innerText = "Area PASSED step audit";
-
-        mainSection.classList.remove("failed-validation-background");
-        mainSection.classList.add("passed-validation-background");
-
-    } else if (input === false) {
-        auditResults[index]["result"] = input;
-
-        mainSectionHeader.classList.remove("failed-validation-background");
-        mainSectionHeader.classList.add("failed-validation-background");
-
-        actionItemsHeader.classList.remove("passed-validation-background");
-        actionItemsHeader.classList.add("failed-validation-background");
-
-        resultsIndicator.classList.remove("no-validation-foreground");
-        resultsIndicator.classList.remove("passed-validation-foreground");
-        resultsIndicator.classList.add("failed-validation-foreground");
-        resultsIndicator.innerText = "Area FAILED step audit";
-
-        mainSection.classList.remove("passed-validation-background");
-        mainSection.classList.add("failed-validation-background");
-
-    } else {
-        mainSectionHeader.classList.remove("failed-validation-background");
-        mainSectionHeader.classList.remove("passed-validation-background");
-
-        actionItemsHeader.classList.remove("passed-validation-background");
-        actionItemsHeader.classList.remove("failed-validation-background");
-
-        resultsIndicator.classList.remove("passed-validation-foreground");
-        resultsIndicator.classList.remove("failed-validation-foreground");
-        resultsIndicator.innerText = "";
-
-        mainSection.classList.remove("passed-validation-background");
-        mainSection.classList.remove("failed-validation-background");
-    }
-}
+//     mainSectionContent.remove();
+//
+//     mainSection.appendChild(mainSectionHeader);
+//     mainSectionHeader.classList.add("no-validation-background");
+//
+//     mainSection.appendChild(actionItemsHeader);
+//     mainSection.appendChild(mainSectionContent);
+//
+//     mainSectionContent.appendChild(actionItems);
+//     actionItemsHeader.classList.add("no-validation-background");
+//
+//     mainSection.appendChild(resultsIndicator);
+//     mainSection.appendChild(resultsValidationControls);
+//     mainSection.appendChild(stepsToggleControls);
+//
+//     toggleStepInformation();
+//     toggleIndicator(index);
+})
 
 function toggleStepInformation() {
-    if (stepInformationButton.innerText === "i") {
-        stepInformationButton.innerText = "x";
-
-        stepDescription.remove();
-        actionItems.remove();
-
-        stepDescription.innerText = `${auditResults[index]["description"]}`;
-
-        mainSectionContent.appendChild(stepDescription);
-        mainSectionContent.appendChild(actionItems);
-    } else {
+    if (stepInformationButton.innerText === "X") {
         stepInformationButton.innerText = "i";
 
         stepDescription.remove();
-        actionItems.remove();
+        // actionItemsHeader.remove();
+        // actionItems.remove();
+//
+//         stepDescription.innerText = `${auditResults[index]["description"]}`;
+//
+//         mainSection.appendChild(stepDescription);
+//         mainSection.appendChild(actionItemsHeader);
+//         mainSectionContent.appendChild(actionItems);
+    } else {
+        stepInformationButton.innerText = "X";
 
-        mainSectionContent.appendChild(actionItems);
+        actionItemsHeader.remove();
+        actionItemsContainer.remove();
 
-        stepDescription.innerText = ``;
+        mainSection.appendChild(stepDescription);
+        mainSection.appendChild(actionItemsHeader);
+        mainSection.appendChild(actionItemsContainer);
+
+//         stepDescription.remove();
+//         actionItemsHeader.remove();
+//         actionItems.remove();
+//
+//         mainSectionContent.appendChild(actionItemsHeader);
+//         mainSectionContent.appendChild(actionItems);
+//
+//         stepDescription.innerText = ``;
     }
-    // if (toggle) {
-    //     if (stepInformationButton.innerText === "X";)
-    //
-    //
-    //     stepInformationButton.innerText = "X";
-    //     // mainSectionContent.appendChild(stepDescription);
-    //
-    //
-    //     console.log(`${toggle} CHEESE`);
-    //
-    // } else {
-    //     // mainSectionContent.appendChild(stepDescription);
-    //     stepInformationButton.innerText = "i";
-    //     stepDescription.innerText = "";
-    //     // stepDescription.innerText = `${auditResults[index]["description"]}`;
-    //
-    //     console.log(`${toggle} CHEESE`);
-    // }
+//     // if (toggle) {
+//     //     if (stepInformationButton.innerText === "X";)
+//     //
+//     //
+//     //     stepInformationButton.innerText = "X";
+//     //     // mainSectionContent.appendChild(stepDescription);
+//     //
+//     //
+//     //     console.log(`${toggle} CHEESE`);
+//     //
+//     // } else {
+//     //     // mainSectionContent.appendChild(stepDescription);
+//     //     stepInformationButton.innerText = "i";
+//     //     stepDescription.innerText = "";
+//     //     // stepDescription.innerText = `${auditResults[index]["description"]}`;
+//     //
+//     //     console.log(`${toggle} CHEESE`);
+//     // }
 }
 
-function toggleIndicator(index) {
-    for (let index = 0; document.getElementsByClassName("progress-indicator").length > index; index++) {
-        document.getElementsByClassName("progress-indicator")[index].classList.remove("selected-progress-indicator");
+function makeAuditStep() {
+    stepTitle.innerText = `Step ${index + 1}: ${auditResults[index]["step"]}`;
+    stepDescription.innerText = `${auditResults[index]["description"]}`;
+
+    mainSectionHeader.appendChild(stepTitle);
+    mainSectionHeader.appendChild(stepInformationButton);
+
+    mainSection.appendChild(mainSectionHeader);
+    mainSection.appendChild(stepDescription);
+    mainSection.appendChild(actionItemsHeader);
+    mainSection.appendChild(actionItemsContainer);
+
+//     mainSectionTitle.remove();
+//     stepInformationButton.remove();
+//     stepDescription.innerText = "";
+//
+//     mainSectionTitle.innerText = `Step ${index + 1}: ${auditResults[index]["step"]}`;
+//
+//     let indicator = document.getElementsByClassName("progress-indicator")[index]
+//     // indicator.classList.remove("completed-progress-indicator");
+//     // indicator.classList.add("completed-progress-indicator");
+//
+//     mainSectionHeader.appendChild(mainSectionTitle);
+//     mainSectionHeader.appendChild(stepInformationButton);
+//
+//     mainSectionContent.appendChild(stepDescription);
+}
+
+function appendActionItem() {
+    (auditResults[index]["actionItems"]).push("");
+
+    while (actionItemsContainer.lastChild) {
+        actionItemsContainer.lastChild.remove();
     }
-    document.getElementsByClassName("progress-indicator")[index].classList.add("selected-progress-indicator");
+
+    let actionItems = auditResults[index]["actionItems"];
+    for (let index in actionItems) {
+        let actionItem = document.createElement("input");
+        actionItem.type = "text";
+        actionItem.value = actionItems[index];
+        actionItem.classList.add("action-item");
+
+        actionItemsContainer.appendChild(actionItem);
+    }
 }
 
 stepInformationButton.addEventListener("click", () => {
     toggleStepInformation();
 })
 
-addActionButton.addEventListener("click", () => {
+addActionItemButton.addEventListener("click", () => {
     appendActionItem();
 })
 
-passValidationButton.addEventListener("click", () => {
-    toggleResult(true);
-    // setTimeout(() => {
-    //     nextToggleButton.click();
-    // }, 1500)
-})
-
-failValidationButton.addEventListener("click", () => {
-    toggleResult(false);
-    // setTimeout(() => {
-    //     nextToggleButton.click();
-    // }, 1500)
-})
-
-nextToggleButton.addEventListener("click", () => {
-    if (auditResults.length - 1 < index + 1) {
-        index = 0;
-    } else {
-        index += 1;
-    }
-
-    makeAuditStep(index);
-    toggleStepInformation();
-    toggleResult(auditResults[index]["result"]);
-    toggleIndicator(index);
-});
-
-previousToggleButton.addEventListener("click", () => {
-    if (index - 1 < 0) {
-        index = auditResults.length - 1;
-    } else {
-        index -= 1;
-    }
-
-    makeAuditStep(index);
-    toggleStepInformation();
-    toggleResult(auditResults[index]["result"]);
-    toggleIndicator(index);
-});
-
-
-
-// progressIndicatorContainerEL.id = "progress-indicator-container";
 //
-// for (let index = 0; auditResults.length - 1 >= index; index++) {
-//     let element = document.createElement("div");
-//     element.className = "progress-indicator";
-//     progressIndicatorContainerEL.appendChild(element);
+// let mainSectionContent = document.getElementById("main-section-content");
+
+// let welcomePrompt = document.getElementById("welcome-prompt");
 //
-//     progressIndicatorEls.push(element);
+
+//
+// let actionItems = document.createElement("div");
+// actionItems.id = "action-items";
+//
+// let actionItemsHeader = document.createElement("header");
+// actionItemsHeader.id = "action-items-header";
+//
+// let actionItemsTitle = document.createElement("h3");
+// actionItemsTitle.id = "action-items-title";
+// actionItemsTitle.innerText = "Action Items";
+
+// let resultsIndicator = document.getElementById("results-indicator");
+//
+// let resultsValidationControls = document.getElementById("results-validation-controls");
+// let passValidationButton = document.getElementById("pass-validation-button");
+// let failValidationButton = document.getElementById("fail-validation-button");
+//
+// let stepsToggleControls = document.getElementById("steps-toggle-controls");
+// let previousToggleButton = document.getElementById("previous-toggle-button");
+// let nextToggleButton = document.getElementById("next-toggle-button");
+// let progressIndicators = document.getElementById("progress-indicators");
+//
+// mainSectionHeader.remove();
+// resultsIndicator.remove();
+// resultsValidationControls.remove();
+// stepsToggleControls.remove();
+
+//
+// function toggleResult(input) {
+//     if (input === true) {
+//         auditResults[index]["result"] = input;
+//
+//         mainSectionHeader.classList.remove("failed-validation-background");
+//         mainSectionHeader.classList.add("passed-validation-background");
+//
+//         actionItemsHeader.classList.remove("failed-validation-background");
+//         actionItemsHeader.classList.add("passed-validation-background");
+//
+//         resultsIndicator.classList.remove("failed-validation-foreground");
+//         resultsIndicator.classList.add("passed-validation-foreground");
+//         resultsIndicator.innerText = "Area PASSED step audit";
+//
+//         mainSection.classList.remove("failed-validation-background");
+//         mainSection.classList.add("passed-validation-background");
+//
+//     } else if (input === false) {
+//         auditResults[index]["result"] = input;
+//
+//         mainSectionHeader.classList.remove("failed-validation-background");
+//         mainSectionHeader.classList.add("failed-validation-background");
+//
+//         actionItemsHeader.classList.remove("passed-validation-background");
+//         actionItemsHeader.classList.add("failed-validation-background");
+//
+//         resultsIndicator.classList.remove("no-validation-foreground");
+//         resultsIndicator.classList.remove("passed-validation-foreground");
+//         resultsIndicator.classList.add("failed-validation-foreground");
+//         resultsIndicator.innerText = "Area FAILED step audit";
+//
+//         mainSection.classList.remove("passed-validation-background");
+//         mainSection.classList.add("failed-validation-background");
+//
+//     } else {
+//         mainSectionHeader.classList.remove("failed-validation-background");
+//         mainSectionHeader.classList.remove("passed-validation-background");
+//
+//         actionItemsHeader.classList.remove("passed-validation-background");
+//         actionItemsHeader.classList.remove("failed-validation-background");
+//
+//         resultsIndicator.classList.remove("passed-validation-foreground");
+//         resultsIndicator.classList.remove("failed-validation-foreground");
+//         resultsIndicator.innerText = "";
+//
+//         mainSection.classList.remove("passed-validation-background");
+//         mainSection.classList.remove("failed-validation-background");
+//     }
 // }
+//
+
+//
+// function toggleIndicator(index) {
+//     for (let index = 0; document.getElementsByClassName("progress-indicator").length > index; index++) {
+//         document.getElementsByClassName("progress-indicator")[index].classList.remove("selected-progress-indicator");
+//     }
+//     document.getElementsByClassName("progress-indicator")[index].classList.add("selected-progress-indicator");
+// }
+
+// passValidationButton.addEventListener("click", () => {
+//     toggleResult(true);
+//     // setTimeout(() => {
+//     //     nextToggleButton.click();
+//     // }, 1500)
+// })
+//
+// failValidationButton.addEventListener("click", () => {
+//     toggleResult(false);
+//     // setTimeout(() => {
+//     //     nextToggleButton.click();
+//     // }, 1500)
+// })
+//
+// nextToggleButton.addEventListener("click", () => {
+//     if (auditResults.length - 1 < index + 1) {
+//         index = 0;
+//     } else {
+//         index += 1;
+//     }
+//
+//     makeAuditStep(index);
+//     toggleStepInformation();
+//     toggleResult(auditResults[index]["result"]);
+//     toggleIndicator(index);
+// });
+//
+// previousToggleButton.addEventListener("click", () => {
+//     if (index - 1 < 0) {
+//         index = auditResults.length - 1;
+//     } else {
+//         index -= 1;
+//     }
+//
+//     makeAuditStep(index);
+//     toggleStepInformation();
+//     toggleResult(auditResults[index]["result"]);
+//     toggleIndicator(index);
+// });
+
+// // progressIndicatorContainerEL.id = "progress-indicator-container";
+// //
+// // for (let index = 0; auditResults.length - 1 >= index; index++) {
+// //     let element = document.createElement("div");
+// //     element.className = "progress-indicator";
+// //     progressIndicatorContainerEL.appendChild(element);
+// //
+// //     progressIndicatorEls.push(element);
+// // }

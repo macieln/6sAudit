@@ -43,17 +43,11 @@ header h1 {
     color: #EEEEEE;
 }
 
-#area-title {
-    margin-left: 2vw;
+header h3 {
+    margin-left: 3vw;
 
-    color: #FFD369;
+    color: #FFE162;
 }
-
-
-
-/******************************************************************/
-/* MAIN SECTION                                                   */
-/******************************************************************/
 
 #main-section {
     width: 96vw;
@@ -63,62 +57,7 @@ header h1 {
     flex-direction: column;
     align-items: center;
 
-    border-radius: 10px;
-
-    /*background-color: green;*/
-}
-
-#main-section-header {
-    width: 82vw;
-    height: auto;
-
-    margin-top: 3vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    /*background-color: pink;*/
-}
-
-#step-information-button {
-    width: 6vw;
-    height: 3vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    font-size: .70rem;
-    font-weight: 800;
-
-    text-align: center;
-
-    border: none;
     border-radius: 5px;
-
-    color: #222831;
-    /*background-color: #FFD369;*/
-}
-
-
-
-/******************************************************************/
-/* MAIN SECTION CONTENT                                           */
-/******************************************************************/
-
-#main-section-content {
-    width: 82vw;
-    height: 70vh;
-
-    margin-bottom: 1vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 
     /*background-color: gray;*/
 }
@@ -142,41 +81,14 @@ header h1 {
 }
 
 #welcome-prompt {
-    /*margin: auto;*/
+    margin: auto;
 }
 
-#step-description {
-    margin-bottom: 3vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-
-    /*background-color: pink;*/
-}
-
-
-
-/******************************************************************/
-/* ACTION ITEMS                                                   */
-/******************************************************************/
-
-#action-items {
-    width: 82vw;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-
-    background-color: purple;
-}
-
-#action-items-header {
-    width: 82vw;
+#main-section-header {
+    width: 84vw;
     height: auto;
+
+    margin: 3vh 0 1vh 0;
 
     display: flex;
     flex-direction: row;
@@ -184,12 +96,57 @@ header h1 {
     align-items: center;
 
     /*background-color: pink;*/
+}
 
-    /*background-color: #EEEEEE;*/
+#step-information-button {
+    width: 6vw;
+    height: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 800;
+
+    border: none;
+    border-radius: 5px;
+
+    color: #222831;
+    background-color: #FFD369;
+}
+
+#step-description {
+    width: 84vw;
+
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    /*background-color: pink;*/
+}
+
+#action-items-header {
+    width: 84vw;
+    height: auto;
+
+    margin: 3vh 0 1vh 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /*background-color: pink;*/
 }
 
 #action-items-title {
+    margin: 0;
 
+    color: #222831;
 }
 
 #add-action-item-button {
@@ -201,181 +158,252 @@ header h1 {
     justify-content: center;
     align-items: center;
 
-    font-size: 1rem;
-    font-weight: 600;
-
-    text-align: center;
+    font-weight: 800;
 
     border: none;
     border-radius: 5px;
 
-    color: #222831;
-    /*background-color: #222831;*/
+    color: #EEEEEE;
+    background-color: #222831;
 }
 
-
-
-/******************************************************************/
-/* RESULTS INDICATORS                                             */
-/******************************************************************/
-
-#results-indicator {
-    height: 3vh;
-
-    margin-bottom: 1vh;
+#action-items-container {
+    width: 84vw;
+    height: 32vh;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
 
-    /*background-color: pink;*/
+    overflow-y: auto;
+
+    /*background-color: purple;*/
 }
 
+.action-item {
+    width: 80vw;
+    height: 3vh;
 
-
-/******************************************************************/
-/* RESULTS VALIDATION CONTROLS                                    */
-/******************************************************************/
-
-#results-validation-controls {
-    width: 35vw;
-    height: 5vh;
-
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
+    padding: 1vh 2vw;
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#pass-validation-button {
-    width: 17.5vw;
-    height: 5vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    border: none;
-    border-radius: 5px 0 0 5px;
-
-    background-color: #47A992;
-    color: #EEEEEE;
-}
-
-#fail-validation-button {
-    width: 17.5vw;
-    height: 5vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    border: none;
-    border-radius: 0 5px 5px 0;
-
-    background-color: #F05454;
-    color: #EEEEEE;
-}
-
-
-
-/******************************************************************/
-/* STEPS TOGGLE CONTROLS                                          */
-/******************************************************************/
-
-#steps-toggle-controls {
-    width: 64vw;
-    height: 5vh;
-
-    margin-bottom: 3vh;
-
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-between;
-    align-items: center;
-
-    /*background-color: pink;*/
-}
-
-
-.step-toggle-button {
-    width: 15vw;
-    height: 5vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 1.75rem;
-    font-weight: bold;
+    flex: none;
 
     border: none;
     border-radius: 5px;
 
-    background-color: #222831;
-    color: #EEEEEE;
+    color: #949292;
+    background-color: #C0C0C0;
 }
-
-
-
-/******************************************************************/
-/* PROGRESS INDICATORS                                            */
-/******************************************************************/
-
-#progress-indicators {
-    width: 25vw;
-    height: 3vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    /*background-color: green;*/
-}
-
-.progress-indicator {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 2rem;
-    background-color: #222831;
-}
-
-.selected-progress-indicator {
-    width: 10px;
-    height: 10px;
-}
-
-.completed-progress-indicator {
-    background-color: #222831;
-}
-
-
 
 .no-validation-background {
     background-color: #EEEEEE;
 }
 
-.passed-validation-background {
-    background-color: #71C8B5;
-}
 
-.failed-validation-background {
-    background-color: #FF7C7C;
-}
+/*#area-title {*/
+/*    margin-left: 2vw;*/
 
-.passed-validation-foreground {
-    color: #47A992;
-}
+/*    color: #FFD369;*/
+/*}*/
 
-.failed-validation-foreground {
-    color: #F05454;
-}
+
+
+
+
+
+
+/*!******************************************************************!*/
+/*!* MAIN SECTION CONTENT                                           *!*/
+/*!******************************************************************!*/
+
+/*#main-section-content {*/
+/*    width: 82vw;*/
+/*    height: 70vh;*/
+
+/*    margin-bottom: 1vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+
+/*    !*background-color: gray;*!*/
+/*}*/
+
+
+
+/*!******************************************************************!*/
+/*!* ACTION ITEMS                                                   *!*/
+/*!******************************************************************!*/
+
+
+
+
+
+
+
+/*!******************************************************************!*/
+/*!* RESULTS INDICATORS                                             *!*/
+/*!******************************************************************!*/
+
+/*#results-indicator {*/
+/*    height: 3vh;*/
+
+/*    margin-bottom: 1vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    !*background-color: pink;*!*/
+/*}*/
+
+
+
+/*!******************************************************************!*/
+/*!* RESULTS VALIDATION CONTROLS                                    *!*/
+/*!******************************************************************!*/
+
+/*#results-validation-controls {*/
+/*    width: 35vw;*/
+/*    height: 5vh;*/
+
+/*    margin-bottom: 3vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*#pass-validation-button {*/
+/*    width: 17.5vw;*/
+/*    height: 5vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    border: none;*/
+/*    border-radius: 5px 0 0 5px;*/
+
+/*    background-color: #47A992;*/
+/*    color: #EEEEEE;*/
+/*}*/
+
+/*#fail-validation-button {*/
+/*    width: 17.5vw;*/
+/*    height: 5vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    border: none;*/
+/*    border-radius: 0 5px 5px 0;*/
+
+/*    background-color: #F05454;*/
+/*    color: #EEEEEE;*/
+/*}*/
+
+
+
+/*!******************************************************************!*/
+/*!* STEPS TOGGLE CONTROLS                                          *!*/
+/*!******************************************************************!*/
+
+/*#steps-toggle-controls {*/
+/*    width: 64vw;*/
+/*    height: 5vh;*/
+
+/*    margin-bottom: 3vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+
+/*    !*background-color: pink;*!*/
+/*}*/
+
+
+/*.step-toggle-button {*/
+/*    width: 15vw;*/
+/*    height: 5vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    font-size: 1.75rem;*/
+/*    font-weight: bold;*/
+
+/*    border: none;*/
+/*    border-radius: 5px;*/
+
+/*    background-color: #222831;*/
+/*    color: #EEEEEE;*/
+/*}*/
+
+
+
+/*!******************************************************************!*/
+/*!* PROGRESS INDICATORS                                            *!*/
+/*!******************************************************************!*/
+
+/*#progress-indicators {*/
+/*    width: 25vw;*/
+/*    height: 3vh;*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+
+/*    !*background-color: green;*!*/
+/*}*/
+
+/*.progress-indicator {*/
+/*    width: 8px;*/
+/*    height: 8px;*/
+
+/*    border-radius: 2rem;*/
+/*    background-color: #222831;*/
+/*}*/
+
+/*.selected-progress-indicator {*/
+/*    width: 10px;*/
+/*    height: 10px;*/
+/*}*/
+
+/*.completed-progress-indicator {*/
+/*    background-color: #222831;*/
+/*}*/
+
+
+
+
+
+/*.passed-validation-background {*/
+/*    background-color: #71C8B5;*/
+/*}*/
+
+/*.failed-validation-background {*/
+/*    background-color: #FF7C7C;*/
+/*}*/
+
+/*.passed-validation-foreground {*/
+/*    color: #47A992;*/
+/*}*/
+
+/*.failed-validation-foreground {*/
+/*    color: #F05454;*/
+/*}*/
