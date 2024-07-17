@@ -98,7 +98,7 @@ header h3 {
     /*background-color: pink;*/
 }
 
-#step-information-button {
+#step-description-button {
     width: 6vw;
     height: 3vh;
 
@@ -169,7 +169,7 @@ header h3 {
 
 #action-items-container {
     width: 84vw;
-    height: 32vh;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -182,7 +182,7 @@ header h3 {
 }
 
 .action-item {
-    width: 80vw;
+    width: 78vw;
     height: 3vh;
 
     margin-bottom: 1vh;
@@ -194,216 +194,143 @@ header h3 {
     border: none;
     border-radius: 5px;
 
-    color: #949292;
+    /*color: #949292;*/
     background-color: #C0C0C0;
 }
 
-.no-validation-background {
-    background-color: #EEEEEE;
+#results-indicator {
+    margin: 3vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /*background-color: pink;*/
 }
 
-
-/*#area-title {*/
-/*    margin-left: 2vw;*/
-
-/*    color: #FFD369;*/
-/*}*/
-
-
-
-
-
-
-
-/*!******************************************************************!*/
-/*!* MAIN SECTION CONTENT                                           *!*/
-/*!******************************************************************!*/
-
-/*#main-section-content {*/
-/*    width: 82vw;*/
-/*    height: 70vh;*/
-
-/*    margin-bottom: 1vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-
-/*    !*background-color: gray;*!*/
-/*}*/
-
-
-
-/*!******************************************************************!*/
-/*!* ACTION ITEMS                                                   *!*/
-/*!******************************************************************!*/
-
-
-
-
-
-
-
-/*!******************************************************************!*/
-/*!* RESULTS INDICATORS                                             *!*/
-/*!******************************************************************!*/
-
-/*#results-indicator {*/
-/*    height: 3vh;*/
-
-/*    margin-bottom: 1vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-
-/*    !*background-color: pink;*!*/
-/*}*/
-
-
-
-/*!******************************************************************!*/
-/*!* RESULTS VALIDATION CONTROLS                                    *!*/
-/*!******************************************************************!*/
-
-/*#results-validation-controls {*/
-/*    width: 35vw;*/
-/*    height: 5vh;*/
-
-/*    margin-bottom: 3vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*}*/
-
-/*#pass-validation-button {*/
-/*    width: 17.5vw;*/
-/*    height: 5vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-
-/*    border: none;*/
-/*    border-radius: 5px 0 0 5px;*/
-
-/*    background-color: #47A992;*/
-/*    color: #EEEEEE;*/
-/*}*/
-
-/*#fail-validation-button {*/
-/*    width: 17.5vw;*/
-/*    height: 5vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-
-/*    border: none;*/
-/*    border-radius: 0 5px 5px 0;*/
-
-/*    background-color: #F05454;*/
-/*    color: #EEEEEE;*/
-/*}*/
-
-
-
-/*!******************************************************************!*/
-/*!* STEPS TOGGLE CONTROLS                                          *!*/
-/*!******************************************************************!*/
-
-/*#steps-toggle-controls {*/
-/*    width: 64vw;*/
-/*    height: 5vh;*/
-
-/*    margin-bottom: 3vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-
-/*    !*background-color: pink;*!*/
-/*}*/
-
-
-/*.step-toggle-button {*/
-/*    width: 15vw;*/
-/*    height: 5vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-
-/*    font-size: 1.75rem;*/
-/*    font-weight: bold;*/
-
-/*    border: none;*/
-/*    border-radius: 5px;*/
-
-/*    background-color: #222831;*/
-/*    color: #EEEEEE;*/
-/*}*/
-
-
-
-/*!******************************************************************!*/
-/*!* PROGRESS INDICATORS                                            *!*/
-/*!******************************************************************!*/
-
-/*#progress-indicators {*/
-/*    width: 25vw;*/
-/*    height: 3vh;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-
-/*    !*background-color: green;*!*/
-/*}*/
-
-/*.progress-indicator {*/
-/*    width: 8px;*/
-/*    height: 8px;*/
-
-/*    border-radius: 2rem;*/
-/*    background-color: #222831;*/
-/*}*/
-
-/*.selected-progress-indicator {*/
-/*    width: 10px;*/
-/*    height: 10px;*/
-/*}*/
+#results-controls {
+    width: 35vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /*background-color: pink;*/
+}
+
+#pass-result-button {
+    width: 17.5vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 5px 0 0 5px;
+
+    background-color: #47A992;
+    color: #EEEEEE;
+}
+
+#fail-result-button {
+    width: 17.5vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 0 5px 5px 0;
+
+    background-color: #F05454;
+    color: #EEEEEE;
+}
+
+#steps-toggle-controls {
+    width: 68vw;
+    height: 5vh;
+
+    margin: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /*background-color: pink;*/
+}
+
+.step-toggle-button {
+    width: 15vw;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.75rem;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #222831;
+    color: #EEEEEE;
+}
+
+#progress-indicator-container {
+    width: 24vw;
+    height: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /*background-color: green;*/
+}
+
+.progress-indicator {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 2rem;
+    background-color: #222831;
+}
+
+.selected-progress-indicator {
+    width: 10px;
+    height: 10px;
+}
 
 /*.completed-progress-indicator {*/
 /*    background-color: #222831;*/
 /*}*/
 
+.no-result-background {
+    background-color: #EEEEEE;
+}
 
+.passed-result-background {
+    background-color: #71C8B5;
+}
 
+.failed-result-background {
+    background-color: #FF7C7C;
+}
 
+.passed-result-foreground {
+    color: #47A992;
+}
 
-/*.passed-validation-background {*/
-/*    background-color: #71C8B5;*/
-/*}*/
-
-/*.failed-validation-background {*/
-/*    background-color: #FF7C7C;*/
-/*}*/
-
-/*.passed-validation-foreground {*/
-/*    color: #47A992;*/
-/*}*/
-
-/*.failed-validation-foreground {*/
-/*    color: #F05454;*/
-/*}*/
+.failed-result-foreground {
+    color: #F05454;
+}
